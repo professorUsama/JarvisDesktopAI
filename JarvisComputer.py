@@ -8,8 +8,6 @@ YouTube Channel: https://www.youtube.com/channel/UC6NrVQEqUXQq4tHdDrfMipw
 '''
 
 
-
-from ssl import enum_certificates
 import pyttsx3
 import speech_recognition as sr
 import wikipedia
