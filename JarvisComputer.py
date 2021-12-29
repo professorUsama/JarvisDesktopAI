@@ -21,7 +21,7 @@ from platform import platform
 
 #Globals Variables section###################
 
-ind_voice_id = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-IN_HEERA_11.0' #indian voice
+ind_voice_id = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\MSTTS_V110_enIN_HeeraM' #indian voice
 
 # setting for using default browser in windows
 browser_path = "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
@@ -41,7 +41,7 @@ def speak(text):
     engine = pyttsx3.init()
     engine.getProperty('voices')
     engine.setProperty('voice',ind_voice_id)
-    engine.setProperty('rate',150) #to increase or decrease speed voice if need
+    engine.setProperty('rate',180) #to increase or decrease speed voice if need
     engine.say(text)
     engine.runAndWait()
 
@@ -58,7 +58,7 @@ def greetingMessage():
     elif hour >=18:
         speak("Good Evening Sir. Have a nice day.")
     
-    speak(f"Asslam-O-Alaikum! I am {userName}. How may I help you.")
+    speak(f"I am {userName}. How may I help you.")
 
 def takeAudioCommands():
     '''
@@ -83,7 +83,6 @@ def takeAudioCommands():
 
 
 if __name__ == '__main__':
-    # speak("Sir, Please tell me time.")
     greetingMessage()
     while(True):
         query = takeAudioCommands().lower()
@@ -97,7 +96,7 @@ if __name__ == '__main__':
         
         elif 'play music' in query:
             try:
-                music_folder_path = "D:\\fvt videos\\Martab ali"
+                music_folder_path = "F:\\local disk D\\fvt videos\\Martab ali"
                 songs = os.listdir(music_folder_path)
                 os.startfile(os.path.join(music_folder_path,songs[randint(0,len(songs)-1)]))
             except Exception:
